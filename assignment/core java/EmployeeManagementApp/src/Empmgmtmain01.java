@@ -1,7 +1,26 @@
 import java.util.*;
+import java.util.stream.Stream;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+class ImportData {
+
+	public static String readFileAsString(String fileName)throws Exception 
+	  { 
+	    String data = ""; 
+	    data = new String(Files.readAllBytes(Paths.get(fileName))); 
+	    return data; 
+	  } 
+	public static <T> Object[] concatenate(T[] a, T[] b) 
+    { 
+        // Function to merge two arrays of same type 
+        return Stream.concat(Arrays.stream(a),Arrays.stream(b)).toArray(); 
+    } 
+}
+ 
 public class Empmgmtmain01 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception  {
 		List<EmpMgmtServices> employee = new ArrayList< EmpMgmtServices>();
 		employee.add(new  EmpMgmtServices(1,"Tania",21,"Manager","IT.","INDIA"));
 		System.out.println(employee);
@@ -12,8 +31,11 @@ public class Empmgmtmain01 {
 		System.out.println("3:veiw all employee");
 		System.out.println("4:update employee");
 		System.out.println("5:delete employee");
+		System.out.println("6:View imported employee");
+		System.out.println("7:View imported and existing employee");
 		
 		
+	    
 		for(int x=0;x<10;x++) {
 			Scanner sc=new Scanner(System.in);
 			int k=sc.nextInt();
@@ -101,7 +123,29 @@ public class Empmgmtmain01 {
 			System.out.println("Enter next operation");
 		}
 		x--;	
+		
+		//
+		
+		if(k==6) {
+			System.out.println(ImportData.readFileAsString("C:\\TRAINING\\ibm-fsd-backend\\assignment\\core java\\EmployeeData.txt")); 
+	    }
+		
+		// 
+		if(k==7) {
+		List<String> lines = Collections.emptyList();
+		lines = Files.readAllLines(Paths.get("C:\\TRAINING\\ibm-fsd-backend\\assignment\\core java\\EmployeeData.txt"));
+	      Object[] array = employee.toArray();
+	      Object[] array1 = lines.toArray();
+	      Object[] c = ImportData.concatenate(array,array1); 
+	      System.out.println("combined view is : "
+                  + Arrays.toString(c));
+	      FileWriter fw=new FileWriter("C:\\TRAINING\\ibm-fsd-backend\\assignment\\core java\\abc.txt");    
+          fw.write(Arrays.toString(c));    
+          fw.close(); 
+		
+	}
+		Thread t1 = new Thread(new ImportExport());
+		t1.start();
 		}
 	}
-
 }
