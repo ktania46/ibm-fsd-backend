@@ -25,22 +25,7 @@ public class DatabaseService {
 	
 	@Autowired
 	public DatabaseService() {
-//		try {
-//			// STEP 2: Register JDBC driver with Driver Manager
-//			Class.forName("com.mysql.jdbc.Driver");
-//
-//			// STEP 3: Open a connection
-//			//System.out.println("Connecting to database...");
-//			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-//			conn.setAutoCommit(false); // enable transaction
-//			
-//			System.out.println("Connection estabilished: " + conn);
-//
-//			// STEP 4: Execute a query
-//			//System.out.println("Creating statement...");
-//		}catch (Exception e) {
-//			
-//		}
+
 	}
 	
 	public Connection connect() {

@@ -16,7 +16,7 @@ public class EmployeeConfiguration {
 	
 	@Bean
 	public Employee employee() {
-		return new Employee("Ankit",22,"dev","ase","india");
+		return new Employee("Tania",22,"Trainer","IT","India");
 	}
 	
 	@Bean

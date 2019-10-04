@@ -133,9 +133,7 @@ public class EmployeeService {
 							
 							Employee newEmp = new Employee(name, age,id,designation, department, country);
 							employeeList.add(newEmp);
-							// Display values
-							//System.out.format("\t%d \t%d \t%s \t%s \t%s \t%s\n", id, age, name, designation, department, country);
-						}
+							}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

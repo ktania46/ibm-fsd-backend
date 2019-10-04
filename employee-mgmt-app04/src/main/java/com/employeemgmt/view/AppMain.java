@@ -60,7 +60,7 @@ public class AppMain {
 				case 10:
 					System.out.println("Exiting...");
 				default:
-					System.out.println("Invalid entry please try again!!");
+					System.out.println("Invalid entry");
 			}
 			
 			

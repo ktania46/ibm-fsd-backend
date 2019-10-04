@@ -3,7 +3,7 @@ package com.employeemgmt.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component("employee")
+
 public class Employee {
 	String name;
 	int age;
@@ -12,7 +12,7 @@ public class Employee {
 	String department;
 	String country;
 	
-	//@Autowired
+	
 	public Employee() {
 		
 	}
